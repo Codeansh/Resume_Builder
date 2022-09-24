@@ -22,5 +22,8 @@ urlpatterns = [
     path('<int:id>/',views.cvprint,name="cvprint"),
     path("register/",views.register,name="register"),
     path("",include("django.contrib.auth.urls")),
-    path("/reslist",views.reslist,name="reslist"),
+    path("reslist/",views.reslist,name="reslist"),
+    path("cvview/<int:id>/",views.cvview,name="cvview"),
+    path("cvdelete/<int:id>/",views.delresume,name="delresume"),
+    path("cvupdate/<int:id>/",views.updateresume,name="updateresume"),
 ]

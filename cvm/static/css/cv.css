@@ -1,68 +1,63 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.intro{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 70px;
-}
-.intro .image img{
-    width: 150px;
-    height: 120px;
-}
-.intro .name{
-    padding-left: 13px;
-}
-.name h4,h5{
-    padding: 7px;
-    font-size: 15px;
-}
-.about{
-    display: flex;
-    flex-direction: column;
-   justify-content: center;
-   align-items: center;
-    padding-top: 50px;
-}
-.about h3{
-    align-items: center;
-}
-.about p{
-    padding: 20px  300px 0px 400px;
-}
-.education{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 50px 0px 0px 395px;
-}
-hr{
-    margin-right: 300px;
-}
-.education h2{
-    padding: 10px;
-    padding-left: 0px;
-}
-.skills{
-   padding-left: 395px;
-   padding-top: 50px;
-}
-.skills li{
-    font-size: 20px;
-}
-.interests{
-    padding-left: 395px;
-   padding-top: 50px;
-}
-.interests li{
-    font-size: 20px;
-}
-.experience{
-    padding-left: 395px;
-   padding-top: 50px;
-}
-.experience p{
-    padding-top: 5px;
-}
+/**{*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+/*.intro{*/
+/*    !*display: flex;*!*/
+/*    !*justify-content: space-evenly;*!*/
+/*    margin-top: 70px;*/
+/*}*/
+/*.intro .image img{*/
+/*    width: 150px;*/
+/*    height: 120px;*/
+/*}*/
+/*.intro .name{*/
+/*    !*padding-left: 13px;*!*/
+/*}*/
+
+/*.about{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*   justify-content: center;*/
+/*   align-items: center;*/
+/*    padding-top: 50px;*/
+/*}*/
+
+/*.about p{*/
+/*    padding: 10px  250px 0px 400px;*/
+/*}*/
+/*.education{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: flex-start;*/
+/*    padding: 50px 0px 0px 395px;*/
+/*}*/
+/*hr{*/
+/*    margin-right: 300px;*/
+/*}*/
+/*.education h2{*/
+/*    padding: 10px;*/
+/*    padding-left: 0px;*/
+/*}*/
+/*.skills{*/
+/*   padding-left: 395px;*/
+/*   padding-top: 50px;*/
+/*}*/
+/*.skills li{*/
+/*    font-size: 20px;*/
+/*}*/
+/*.interests{*/
+/*    padding-left: 395px;*/
+/*   padding-top: 50px;*/
+/*}*/
+/*.interests li{*/
+/*    font-size: 20px;*/
+/*}*/
+/*.experience{*/
+/*    padding-left: 395px;*/
+/*   padding-top: 50px;*/
+/*}*/
+/*.experience p{*/
+/*    padding-top: 5px;*/
+/*}*/
