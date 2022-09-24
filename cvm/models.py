@@ -1,3 +1,5 @@
+import datetime
+from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import forms
@@ -10,6 +12,7 @@ class CV(models.Model):
     skills = models.CharField(max_length=300)
     interests = models.CharField(max_length=300)
     about = models.CharField(max_length=400)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 class Experience(models.Model) :

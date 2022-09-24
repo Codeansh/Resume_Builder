@@ -1,5 +1,6 @@
 
 {%  load static %}
+{% load split %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,86 +10,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-      <link rel="stylesheet" type="text/css" href="{% static 'css/cv.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
-<body>
-    <div>
-        <button type="button"  class="btn btn-primary"> <a style="color: lightcyan" href="{%  url 'cvprint' id=cv.pk %}">Download Now </a></button>
-        <div class="intro">
-            <div class="name">
-                <h4>{{ cv.name }}</h4>
+<body style="font-family: 'Open Sans', sans-serif;">
+ <div class="container d-flex align-items-center" style="padding:50px 80px 50px 80px;border:1px solid black" >
+    <div class="row d-flex justify-content-end">
+
+    <div class="col-2" style="margin-right: -33px">
+        <button type="button"  class="btn" style="border: 2px solid blue;border-radius: 8px;"> <a style="text-decoration: none;color: blue" href="{%  url 'cvprint' id=cv.id %}">Download Now </a></button>
+    </div>
+            <div class="col-1">
+        <button type="button"  class="btn " style="border: 2px solid red;border-radius: 8px;"> <a style="text-decoration: none;color: red" href="{%  url 'delresume' id=cv.id %}">Delete </a></button>
+    </div>
+         <div class="col-1">
+        <button type="button"  class="btn " style="border: 2px solid green;border-radius: 8px;"> <a style="text-decoration: none;color: green" href="{%  url 'updateresume' id=cv.id %}">Edit</a></button>
+    </div>
+
+        <div class="intro" style="padding-top: 100px">
+            <div class="">
+                <h2>{{ cv.name }}</h2>
                 <h5>Email:{{ cv.email }}</h5>
                 <h5>Mob:{{ cv.phone }}</h5>
 {#                <h5>LinkedIn:https//:xyzbjubju3gc3j</h5>#}
 {#                <h5>Github:bhdvxy3c</h5>#}
+                <hr>
+                <br>
             </div>
 {#            <div class="image">#}
 {#                <img src="" alt="img" width="50px" height="50px">#}
 {#            </div>#}
         </div>
         <div class="about">
-            <h3>About</h3>
-            <p>{{ cv.about }}</p>
-        </div>
-        <div class="education">
-            <h2>Education</h2>
-            {% for e in edu%}
-            <hr>
+            <div class="row ml-10px"> <div class="col-1"><h3>About: </h3>  </div> <div class="col-10 ml-4px mt-1 mb-2px " style="font-size: 18px"><i>{{ cv.about }}</i></div> </div>
+                <hr><br>
             <br>
-            <h3>{{ e.degree }}</h3>
-            <h4>{{e.college}}</h4>
-            <h4>CGPA: {{e.score  }}</h4>
-            <br>
-            {% endfor %}
-        </div>
-        <div class="experience">
-            <h2>Experience</h2>
-            <hr>
-            {% for e in exp %}
-            <div>
-                <p><b>Position:</b>{{ e.position }}</p>
-                <p><b>Company:</b>{{ e.company }}</p>
-                <p><b>Work:</b>{{ e.work }}</p>
-                <p><b>Duration:</b>{{ e.duration }}</p>
-            </div>
-{% endfor %}
         </div>
 
-        <div class="skills">
-            <h2>Skills</h2>
-            <hr>
-            <p> {{ cv.skills }}</p>
-{#            <ul style="display: inline-block; padding: 15px 20px 10px 15px;">#}
-{#                <li>programming</li>#}
-{#                <li>programming</li>#}
-{#                <li>programming</li>#}
-{#                <li>programming</li>#}
-{#                <li>programming</li>#}
-{#            </ul>#}
-{#            <ul style="display: inline-block; padding: 15px 15px 10px 200px;">#}
-{#                <li>programming</li>#}
-{#                <li>programming</li>#}
-{#                <li>programming</li>#}
-{#                <li>programming</li>#}
-{#                <li>programming</li>#}
-{#            </ul>#}
+
+        <div class="education">
+            <h2><b>Education</b></h2><hr>
+            {% for e in edu%}
+            <h4>{{ e.degree }} &nbsp; (<span style="font-size: 18px">{{ e.duration }}</span>)</h4>
+            <h5>{{e.college}}</h5>
+            <h6>CGPA/Percentage : {{e.score  }}</h6>
+            <br>
+            {% endfor %}
+        <br><br>
         </div>
-        <div class="interests">
-            <h2>Interest</h2>
+
+        <div class="experience">
+            <h2><b>Experience</b></h2>
             <hr>
-            {{ cv.interests }}
-{#            <ol style="display: inline-block; padding: 15px 20px 10px 15px;">#}
-{#                <li>programming</li>#}
-{#                <li>programming</li>#}
-{#            </ol>#}
-{#            <ol style="display: inline-block; padding: 15px 15px 10px 200px;">#}
-{#                <li>programming</li>#}
-{#                <li>programming</li>#}
-{#            </ol>#}
+            {% for e in exp %}
+            <div style="font-size: 20px">
+                <span><span style="font-family: 'Inter Tight', 'Poppins';">Position</span>:{{ e.position }}</span><br>
+                <span><span style="font-family: 'Inter Tight', 'Poppins';">Company</span>:{{ e.company }}</span><br>
+                <span><span style="font-family: 'Inter Tight', 'Poppins';">Work</span>:{{ e.work }}</span><br>
+                <span><span style="font-family: 'Inter Tight', 'Poppins';">Duration</span>:{{ e.duration }}</span>
+          <br> <br></div>
+            {% endfor %}
+  <br><br>      </div>
+
+        <div class="skills" style="font-size: 20px;">
+            <h2><b>Skills</b></h2>
+            <hr>
+        <ul style="display: inline-block; padding: 15px 20px 10px 15px;">
+           {% for c in cv.skills|splt %}
+
+             <li>{{ c }}</li>
+            {% endfor %}
+
+        </ul>
+  <br><br>
         </div>
-    </div>
+        <div class="interests" style="font-size: 20px;">
+            <h2><b>Interests</b></h2>
+            <hr>
+         <ul style="display: inline-block; padding: 15px 20px 10px 15px;">
+            {%  for i in  cv.interests|splt %}
+                <li>{{ i }}</li>
+         {% endfor %}
+            </ul>
+        <br><br>
+        </div>
+        </div>
+ </div>
 </body>
 
 </html>
+

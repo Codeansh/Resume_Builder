@@ -12,7 +12,7 @@
   <body>
    <section class="vh-100%  bg-image"
   style="background-image: url('https://www.athletadesk.com/wp-content/uploads/2016/08/join-background.jpg');color:teal ">
-       <button class="btn btn-secondary"><a href="{% url 'reslist' %}"> Recent </a></button>
+
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-10">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -22,7 +22,13 @@
   <div class="container" style="font-family: sans-serif">
       <div class="row ">
           <div class="col-md-12">
-              <h2 style="color:black;"> <b>My Resume</b> </h2>
+
+                <div class="row">
+                      <h2 style="color:black;" class="col-9"> <b>My Resume</b> </h2>
+       <button class="btn btn-primary bg-light col-3" style="border-color: teal"><a href="{% url 'reslist' %}" style="text-decoration: none;font-size:1.25rem;color: teal;"> Recent </a></button>
+
+           </div>
+
               <hr>
 
 
@@ -30,6 +36,7 @@
               <form method="POST" action="">
                   {% csrf_token %}
                                 <div class="form-group">
+
                                     <label for="" ><b>Name</b></label>
                       <input placeholder="{{ user.username}}" type="text" class="form-control" id="name" name="name">
                   </div>
