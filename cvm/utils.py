@@ -38,3 +38,11 @@ def save_resume(data, user, op, _cv):
                 new_cv.experience.add(exp)
             h += 1
     return new_cv
+
+
+def find_cv(id):
+    try:
+        cv = CV.objects.get(pk=id)
+    except CV.DoesNotExist:
+        cv = None
+    return cv
