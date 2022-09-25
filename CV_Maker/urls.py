@@ -14,16 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
+
 from cvm import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.cvmake,name="cvmake"),
-    path('<int:id>/',views.cvprint,name="cvprint"),
-    path("register/",views.register,name="register"),
-    path("",include("django.contrib.auth.urls")),
-    path("reslist/",views.reslist,name="reslist"),
-    path("cvview/<int:id>/",views.cvview,name="cvview"),
-    path("cvdelete/<int:id>/",views.delresume,name="delresume"),
-    path("cvupdate/<int:id>/",views.updateresume,name="updateresume"),
+    path('create_cv/', views.create_resume, name="create-resume"),
+    path('<int:id>/', views.print_resume, name="print-resume"),
+    path("register/", views.register, name="register"),
+    path("", include("django.contrib.auth.urls")),
+    path("", views.user_resume, name="user-resume"),
+    path("cvview/<int:id>/", views.view_resume, name="view-resume"),
+    path("cvdelete/<int:id>/", views.delete_resume, name="delete-resume"),
+    path("cvupdate/<int:id>/", views.update_resume, name="update-resume"),
 ]

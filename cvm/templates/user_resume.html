@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section>
+
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-10">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;background-color:snow;border-color: white;">
+                            <div class="card-body p-5">
+                                <div class="container" style="font-family: sans-serif;">
+                                    <div class="row ">
+                                        <div class="col-md-12">
+
+                                            <div class="row">
+
+                                                {% if not user.is_anonymous %}
+                                                    <h2></h2>
+
+                                                    {% if not cvs %}
+                                                        <h2 style="color:teal;" class="col-9">
+                                                        <p style="color:red;margin-left: 2.5%"> No Saved Resume </p>
+                                                        <br>
+                                                        <button class="btn btn-secondary"
+                                                                style="background-color:whitesmoke;margin: 10px 0px 0px 2.5%;width:30%;">
+                                                            <a style="text-decoration: none;color:teal"
+                                                               href="{% url 'create-resume' %}"><b>Create</b> </a>
+                                                        </button>
+                                                    {% else %}
+                                                        <h2 style="color:teal;" class="col-9"><b>Recent Resume</b></h2>
+                                                        <button class="btn btn-secondary"
+                                                                style="background-color:whitesmoke;margin: -40px 10px 20px 390px;width:20%;">
+                                                            <a style="text-decoration: none;color:teal"
+                                                               href="{% url 'create-resume' %}"><b>Create</b> </a>
+                                                        </button>
+                                                    {% endif %}
+
+
+                                                    <ul class="list-group">
+                                                        {% for cv in cvs %}
+                                                            <li class="list-group-item"
+                                                                style="color: rgba(0,0,0,0.73);margin: 8px; border: 1px solid teal">
+                                                                <b>Resume </b> <span
+                                                                    style="padding-left:15rem;color: grey">{{ cv.created_at|date:'d/m/y h:i' }}</span>
+                                                            </li>
+                                                            <button class="btn btn-secondary"
+                                                                    style="background-color:whitesmoke;margin: 0px 10px 0px 390px;width:20%;">
+                                                                <a style="text-decoration: none;color:teal"
+                                                                   href="{% url 'view-resume' id=cv.id %}"><b>View</b>
+                                                                </a></button>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% endif %}
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

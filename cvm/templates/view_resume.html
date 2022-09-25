@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load split %}
+
+
+
+{% block content %}
+    <div class="container d-flex align-items-center" style="padding:50px 80px 50px 80px;border:1px solid black">
+        <div class="row d-flex justify-content-end">
+            <div class="col-1" style="margin-right:-5px">
+                <button type="button" class="btn" style="border: 2px solid teal;border-radius: 8px;"><a
+                        style="text-decoration: none;color: teal" href="{% url 'user-resume' %}"> Home </a></button>
+            </div>
+            <div class="col-2" style="margin-right: -33px">
+                <button type="button" class="btn" style="border: 2px solid teal;border-radius: 8px;"><a
+                        style="text-decoration: none;color: teal" href="{% url 'print-resume' id=cv.id %}">Download
+                    Now </a></button>
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn " style="border: 2px solid red;border-radius: 8px;"><a
+                        style="text-decoration: none;color: red" href="{% url 'delete-resume' id=cv.id %}">Delete </a>
+                </button>
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn " style="border: 2px solid green;border-radius: 8px;"><a
+                        style="text-decoration: none;color: green" href="{% url 'update-resume' id=cv.id %}">Edit</a>
+                </button>
+            </div>
+
+            <div class="intro" style="padding-top: 100px">
+                <div class="">
+                    <h2>{{ cv.name }}</h2>
+                    <h5>Email:{{ cv.email }}</h5>
+                    <h5>Mob:{{ cv.phone }}</h5>
+                    {#                <h5>LinkedIn:https//:xyzbjubju3gc3j</h5>#}
+                    {#                <h5>Github:bhdvxy3c</h5>#}
+                    <hr>
+                    <br>
+                </div>
+                {#            <div class="image">#}
+                {#                <img src="" alt="img" width="50px" height="50px">#}
+                {#            </div>#}
+            </div>
+            <div class="about">
+                <div class="row ml-10px">
+                    <div class="col-1"><h3>About: </h3></div>
+                    <div class="col-10 ml-4px mt-1 mb-2px " style="font-size: 18px"><i>{{ cv.about }}</i></div>
+                </div>
+                <hr>
+                <br>
+                <br>
+            </div>
+
+
+            <div class="education">
+                <h2><b>Education</b></h2>
+                <hr>
+                {% for e in edu %}
+                    <h4>{{ e.degree }} &nbsp; (<span style="font-size: 18px">{{ e.duration }}</span>)</h4>
+                    <h5>{{ e.college }}</h5>
+                    <h6>CGPA/Percentage : {{ e.score }}</h6>
+                    <br>
+                {% endfor %}
+                <br><br>
+            </div>
+
+            <div class="experience">
+                <h2><b>Experience</b></h2>
+                <hr>
+                {% for e in exp %}
+                    <div style="font-size: 20px">
+                        <span><span
+                                style="font-family: 'Inter Tight', 'Poppins';">Position</span>:{{ e.position }}</span><br>
+                        <span><span style="font-family: 'Inter Tight', 'Poppins';">Company</span>:{{ e.company }}</span><br>
+                        <span><span style="font-family: 'Inter Tight', 'Poppins';">Work</span>:{{ e.work }}</span><br>
+                        <span><span
+                                style="font-family: 'Inter Tight', 'Poppins';">Duration</span>:{{ e.duration }}</span>
+                        <br> <br></div>
+                {% endfor %}
+                <br><br></div>
+
+            <div class="skills" style="font-size: 20px;">
+                <h2><b>Skills</b></h2>
+                <hr>
+                <ul style="display: inline-block; padding: 15px 20px 10px 15px;">
+                    {% for c in cv.skills|splt %}
+
+                        <li>{{ c }}</li>
+                    {% endfor %}
+
+                </ul>
+                <br><br>
+            </div>
+            <div class="interests" style="font-size: 20px;">
+                <h2><b>Interests</b></h2>
+                <hr>
+                <ul style="display: inline-block; padding: 15px 20px 10px 15px;">
+                    {% for i in  cv.interests|splt %}
+                        <li>{{ i }}</li>
+                    {% endfor %}
+                </ul>
+                <br><br>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
