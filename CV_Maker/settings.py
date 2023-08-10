@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-cj00%yc%j+0^!71cnxn9zm&p3z#=km-3-7ns44b3kx(_fj-ij=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '192.168.43.181','resume-builder-jzef.onrender.com' ]
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '192.168.43.181','127.0.0.1','resume-builder-jzef.onrender.com' ]
 
 # Application definition
 
