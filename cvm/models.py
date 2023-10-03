@@ -12,6 +12,9 @@ class CV(models.Model):
     about = models.CharField(max_length=400)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f"CV for {self.name}"
+
 
 class Experience(models.Model):
     cv = models.ForeignKey(CV, on_delete=models.CASCADE, related_name="experience", null=True)
