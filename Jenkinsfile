@@ -19,7 +19,7 @@ pipeline {
         DOCKERHUB_PASSWORD = '@microprocessor#'
       }
       steps {
-        sh '''docker dogin -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
+        sh '''docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
 '''
       }
     }
