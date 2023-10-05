@@ -9,7 +9,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -t cvapp  .'
+        sh 'docker build -t shivansh15/cvapp:latest  .'
       }
     }
 
@@ -26,7 +26,7 @@ pipeline {
 
     stage('Push to Dockerhub') {
       steps {
-        sh 'docker push shivansh15/cvapp:latest -t shivansh15/cvapp:latest'
+        sh 'docker push shivansh15/cvapp:latest '
       }
     }
 
