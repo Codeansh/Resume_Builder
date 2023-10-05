@@ -26,7 +26,7 @@ pipeline {
 
     stage('Push to Dockerhub') {
       steps {
-        sh 'docker push cvapp:latest'
+        sh 'docker push shivansh15/cvapp:latest -t shivansh15/cvapp:latest'
       }
     }
 
