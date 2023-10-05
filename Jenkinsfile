@@ -24,5 +24,11 @@ pipeline {
       }
     }
 
+    stage('Push to Dockerhub') {
+      steps {
+        sh 'docker push shivansh15/cvapp:latest'
+      }
+    }
+
   }
 }
